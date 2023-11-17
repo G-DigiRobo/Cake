@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <a class="navbar-brand" href="/">ながのけーき</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+ 
+ <!--ログインしてない時  -->
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to リンク_path(current_user) , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-house"></i> Home
+        <%end%>
+      </li>
+      
+      <li class="nav-item">
+        <%=link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-users"></i> Users
+        <%end%>
+      </li>
+      
+      <li class="nav-item"> 
+        <%= link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-book-open"></i> Books
+        <%end%>
+      </li>
+   
+      <li class="nav-item">
+        <%= link_to リンク_path, method: :delete, class:"nav-link text-light" do %>
+          <i class="fa-solid fa-right-from-bracket"></i> Log out
+        <%end%>
+      </li>
+    
+    <% else %>
+      <li class="nav-item">
+        <%= link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-house"></i> Home
+        <%end%>
+      </li>
+      
+      <li class="nav-item">
+        <%=link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-link"></i> About
+        <%end%>
+      </li>
+      
+      <li class="nav-item"> 
+        <%= link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-user-plus"></i> Sign up
+        <%end%>
+      </li>
+      
+      <li class="nav-item">
+        <%= link_to リンク_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-right-to-bracket"></i> Log in
+        <%end%>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</nav>
