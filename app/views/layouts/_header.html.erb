@@ -1,60 +1,61 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-  <a class="navbar-brand" href="/">ながのけーき</a>
+<nav class="navbar navbar-expand-lg navbar-dark" style=" background-color: #F76c6c;">
+  <a class="m-3 navbar-brand" href="/"><img class="logo" src="/assets/nagano-cake" height="46" alt="ロゴ"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
  
- <!--ログインしてない時  -->
-    <% if user_signed_in? %>
+  <!--ログインしている時  -->
+    <% if customer_signed_in? %>
       <li class="nav-item">
-        <%= link_to リンク_path(current_user) , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-house"></i> Home
-        <%end%>
+        <%= link_to root_path(current_user) , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-house"></i> マイページ
+        <% end %>
       </li>
       
       <li class="nav-item">
-        <%=link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-users"></i> Users
-        <%end%>
+        <%=link_to root_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-cake-candles"></i> 商品一覧
+        <% end %>
       </li>
       
       <li class="nav-item"> 
-        <%= link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-book-open"></i> Books
-        <%end%>
+        <%= link_to root_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-cart-shopping"></i> カート
+        <% end %>
       </li>
    
       <li class="nav-item">
-        <%= link_to リンク_path, method: :delete, class:"nav-link text-light" do %>
-          <i class="fa-solid fa-right-from-bracket"></i> Log out
-        <%end%>
+        <%= link_to root_path, method: :delete, class:"nav-link text-light" do %>
+          <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+        <% end %>
       </li>
     
+  <!--ログインしていない時  -->
     <% else %>
       <li class="nav-item">
-        <%= link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-house"></i> Home
-        <%end%>
+        <%= link_to root_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-tag"></i> About
+        <% end %>
       </li>
       
       <li class="nav-item">
-        <%=link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-link"></i> About
-        <%end%>
+        <%=link_to root_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-cake-candles"></i> 商品一覧
+        <% end %>
       </li>
       
       <li class="nav-item"> 
-        <%= link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-user-plus"></i> Sign up
-        <%end%>
+        <%= link_to root_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-user-plus"></i> 新規登録
+        <% end %>
       </li>
       
       <li class="nav-item">
-        <%= link_to リンク_path , class:"nav-link text-light" do %>
-          <i class="fa-solid fa-right-to-bracket"></i> Log in
-        <%end%>
+        <%= link_to root_path , class:"nav-link text-light" do %>
+          <i class="fa-solid fa-right-to-bracket"></i> ログイン
+        <% end %>
       </li>
     <% end %>
     </ul>

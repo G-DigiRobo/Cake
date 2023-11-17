@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2023_11_17_055054) do
-=======
 ActiveRecord::Schema.define(version: 2023_11_17_063130) do
->>>>>>> origin/develop
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,13 +40,11 @@ ActiveRecord::Schema.define(version: 2023_11_17_063130) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-<<<<<<< HEAD
-=======
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.string "name", default: "", null: false
-    t.string "postcode", default: "", null: false
-    t.string "address", default: "", null: false
+    t.string "name", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,13 +75,13 @@ ActiveRecord::Schema.define(version: 2023_11_17_063130) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "postcode", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "telephone_number", default: "", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "telephone_number", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -96,15 +90,15 @@ ActiveRecord::Schema.define(version: 2023_11_17_063130) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.string "name", default: "", null: false
-    t.text "detail", default: "", null: false
+    t.string "name", null: false
+    t.text "detail", null: false
     t.integer "price", null: false
     t.boolean "is_sales_status", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -127,14 +121,13 @@ ActiveRecord::Schema.define(version: 2023_11_17_063130) do
     t.integer "order_status", default: 0, null: false
     t.integer "billing_amount", null: false
     t.integer "postage", null: false
-    t.string "name", default: "", null: false
-    t.string "postcode", default: "", null: false
-    t.string "address", default: "", null: false
+    t.string "name", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
->>>>>>> origin/develop
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
