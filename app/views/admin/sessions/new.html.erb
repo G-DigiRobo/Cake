@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="row-cols-1">
+  <div class="row">
     <div class="col-lg-7 col-md-9 mx-auto align-items-center">
-      <h2 class="text-center mt-3">管理者ログイン</h2>
+      <h2 class="text-center mt-4">管理者ログイン</h2>
       <div class="col d-flex justify-content-center">
       <%= form_with model: @admin, url: new_admin_session_path do |f| %>
         <table>
           <tbody>
             <tr>
-              <th><%= f.label :メールアドレス, class:'mt-3' %></th>
+              <th><%= f.label :メールアドレス, class:'mt-4 mr-5' %></th>
               <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
             </tr>
             <tr>
-              <th><%= f.label :パスワード, class:'mt-3' %></th>
+              <th><%= f.label :パスワード, class:'mt-4' %></th>
               <td><%= f.password_field :password, autocomplete: "current-password" %></td>
             </tr>
           </tbody>
@@ -21,7 +21,7 @@
           <%= f.label :remember_me %>
         </div>
         <div class="col d-flex justify-content-center">
-          <%= f.submit "ログイン", class: "btn btn-primary rounded-pill text-lig" %>
+          <%= f.submit "ログイン", class: "btn btn-primary rounded-pill text-lig mt-3" %>
         </div>
        <% end %>
        <%= render "admin/shared/links" %>
