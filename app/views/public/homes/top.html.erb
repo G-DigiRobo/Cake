@@ -1,8 +1,14 @@
 <!--トップ画面-->
-<div class="container">
-  <div class="row">
-    <%= render 'layouts/genre' %>
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto text-center" style=" margin-top: 150px ;"> 
+<div class="container-fluid">
+  <div class="row mx-auto">
+    <div class="col-3" style="text-align: left;">
+      <!--ジャンル検索 -->
+      <span class="border border-info">
+        <%= render 'layouts/genre' %>
+      </span>
+    </div>
+    
+    <div class="col-8 text-center" style="margin-top: 150px; background-image: url('assets/166.png'); "> 
       <h5>ようこそ　ながのけーき へ！</h5>
       <div>このサイトは、ケーキ販売のECサイトになります。</div>
       <div>会員でない方も商品の閲覧はできますが、</div>
