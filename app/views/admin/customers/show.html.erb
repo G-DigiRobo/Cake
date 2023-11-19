@@ -1,2 +1,50 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<!--管理者側・会員情報詳細ページ(塚本-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7 col-md-9 mx-auto alingn-item-center">
+      <h3 class="text-left mt-3"><%= @customer の会員詳細 %></h3>
+      <table class="table table-hover table-inverse">
+        <th>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </th>
+        <tb>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.postcode %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td><%= is_active %></td>
+        </tr>
+        </tb>
+      </table>
+    </div>
+  </div>
+</div>

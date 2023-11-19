@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-lg-7 col-md-9 mx-auto alingn-item-center">
@@ -5,7 +6,7 @@
       <table class="table table-hover table-inverse">
         <th>
           <tr>
-            <th>会員id</th>
+            <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ステータス</th>
@@ -16,9 +17,14 @@
           <td>
             <!--会員idとってくる-->
           </td>
-          <td></td>
-        </tr></tb>
+          <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.is_active %></td>
+        </tr>
+        <% end %>
+        </tb>
       </table>
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
