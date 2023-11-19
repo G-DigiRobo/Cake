@@ -1,18 +1,37 @@
 <!--トップ画面-->
 <div class="container-fluid">
-  <div class="row mx-auto">
-    <div class="col-3" style="text-align: left;">
-      <!--ジャンル検索 -->
-      <span class="border border-info">
-        <%= render 'layouts/genre' %>
-      </span>
+  <div class="row mx-auto mt-5">
+    <div class="col-2" style="text-align: left;">
+     ジャンル検索
+       <!--%= render 'layouts/genre' ,genres:@genres %>-->
     </div>
     
-    <div class="col-8 text-center" style="margin-top: 150px; background-image: url('assets/166.png'); "> 
-      <h5>ようこそ　ながのけーき へ！</h5>
-      <div>このサイトは、ケーキ販売のECサイトになります。</div>
-      <div>会員でない方も商品の閲覧はできますが、</div>
-      <div>購入には会員登録が必要になります。</div>
-    </div>
-  </div>
+    <div class  = "image col-8"  style= "background-image: url('assets/cake_b.png'); ">
+      <div class=" text-center mt-5"> 
+          <h5>ようこそ　ながのけーき へ！</h5>
+          <div>このサイトは、ケーキ販売のECサイトになります。</div>
+          <div>会員でない方も商品の閲覧はできますが、</div>
+          <div>購入には会員登録が必要になります。</div>
+      </div>
+     
+        <!--新着商品一覧-->
+      <div class="row aa"> 
+        <div class="col-4 text-center"> 
+          <h4>新着商品</h4>
+            <table>
+              <tbody>
+                <!--% @items.each do |item| %>-->
+                  <tr>
+                    <!--<td>%= item.name %></td>-->
+                    <!--<td>%= item.price %></td>-->
+                    <!--<td>%= image_tag item.image.variant(resize:'100x100')%></td> -->
+                  </tr>
+                <!--% end %>-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+      <!--ここまで-->
 </div>
