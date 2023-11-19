@@ -1,7 +1,12 @@
 <!--会員詳細ページ(塚本)-->
+
 <h2>マイページ</h2>
+
 <table border="1" cellpadding="6" cellspacing="0">
- <caption>登録情報</caption>
+ <caption>
+   登録情報
+   <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success ml-3" %>
+ </caption> 
   <tr>
     <td>氏名</td>
     <td><%= @customer.last_name %><%= @customer.first_name %></td>
@@ -27,3 +32,8 @@
     <td><%= @customer.email %></td>
   </tr>
 </table>
+
+<h4>配送先</h4>
+<%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %>
+<h4>注文履歴</h4>
+<%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>

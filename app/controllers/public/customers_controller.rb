@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to
+      redirect_to referrer
     else
       render :edit
     end
