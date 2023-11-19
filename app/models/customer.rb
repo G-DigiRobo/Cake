@@ -11,5 +11,5 @@ class Customer < ApplicationRecord
   validates :postcode, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
-  validates :email, presence: true, uniquenss: true
+  validates :email, presence: true, uniqueness: true
 end
