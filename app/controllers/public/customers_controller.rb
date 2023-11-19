@@ -17,4 +17,6 @@ class Public::CustomersController < ApplicationController
       redirect_to
     else
       render :edit
+    end
+  end
 end
