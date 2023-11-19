@@ -12,12 +12,13 @@ class Admin::GenresController < ApplicationController
 
   def edit
     @genre = Genre.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to admin_genres_path(@genre), notice: "更新できました"
+      redirect_to admin_genres_path, notice: "更新できました"
     else
       render "edit"
     end
