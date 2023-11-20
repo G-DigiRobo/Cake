@@ -8,8 +8,9 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = "投稿できました"
-      redirect_to admin_item_path(@item)
+      redirect_to admin_items_path
     else
+      @items = Item.all
       render :edit
     end
   end
@@ -41,6 +42,6 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :detail, :price, :is_sales_status)
+    params.require(:item).permit(:name, :detail, :price, :is_sales_status, :genre_id)
   end
 end
