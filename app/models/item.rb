@@ -18,4 +18,9 @@ class Item < ApplicationRecord
   end
     image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def tax_included_price
+    tax_rate = 0.08
+    price*(1+tax_rate)
+  end
 end
