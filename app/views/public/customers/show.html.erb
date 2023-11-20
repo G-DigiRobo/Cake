@@ -2,13 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7 col-md-9 mx-auto align-items-center">
+        <%= flash[:notice] %>
         <h2 class="text-center mt-4">マイページ</h2>
         <div class="row my-3">
           <div class="col-3">
            <strong>登録情報</strong>
           </div>
           <div class="col-8">
-             <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success rounded-pill text-lig" %>
+             <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-dark rounded-pill text-lig" %>
           </div>
         </div>
             <table class="table table-hover">

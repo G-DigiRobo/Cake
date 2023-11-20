@@ -4,19 +4,37 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def confirm
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to referrer
+      flash[:notice] = "変更を保存しました"
+      redirect_to customer_path
     else
       render :edit
     end
   end
+
+  def withdrawal
+    @customer = current_customer
+    if @customer.update(is_active: false)
+      sign_out @customer
+      redirect_to root_path
+    else
+      render :confirm
+    end
+  end
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :telephone_number, :email)
+  end
+
 end
