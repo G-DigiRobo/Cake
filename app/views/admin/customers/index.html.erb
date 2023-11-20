@@ -1,4 +1,4 @@
-
+<!--管理者側・顧客一覧(塚本)-->
 <div class="container">
   <div class="row">
     <div class="col-lg-7 col-md-9 mx-auto alingn-item-center">
@@ -12,14 +12,13 @@
             <th>ステータス</th>
           </tr>
         </th>
-        <tb><% @customers.each do |customer| %>
+        <tb>
+        <% @customers.each do |customer| %>
         <tr>
-          <td>
-            <!--会員idとってくる-->
-          </td>
-          <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
           <td><%= customer.email %></td>
-          <td><%= customer.is_active %></td>
+          <td><%= customer.is_active ? "有効" : '<span class="text-muted">退会</span>'.html_safe %></td>
         </tr>
         <% end %>
         </tb>
