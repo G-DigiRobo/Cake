@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   validates :detail, presence: true
 
   belongs_to :genre
+  has_many :cart_items, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   has_one_attached :image
 
   enum is_sales_status: {
