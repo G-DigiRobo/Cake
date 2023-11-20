@@ -25,7 +25,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(is_active: false)
       sign_out @customer
-      flash[:notice] = ""
+      flash[:notice] = "退会しました"
       redirect_to root_path
     else
       render :confirm
