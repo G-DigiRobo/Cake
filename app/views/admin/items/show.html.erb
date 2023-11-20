@@ -1,2 +1,37 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<%# item new 町井 %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
+      <h2 class="text-center mt-4">商品詳細</h2>
+      <%= form_with model: @item, url: admin_items_path do |f| %>
+        <div class="form-group row">
+          <%= f.label :image, "商品画像" ,class:'col-12'%><br>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :title, "商品名" , class: 'col-12'%>
+            <%= @item.name %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :opinion, "商品説明" %>
+          <%= @item.detail %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :name, "ジャンル" %>
+          <%= @item.genre_id %>
+        </div>
+        <div class="form-group row ">
+          <%= f.label :title, "税抜価格" %>
+          <%= @item.price %>円
+        </div>
+        <div class="form-group row ">
+          <%= f.label :is_sales_status, "販売ステータス" %>
+          <%= @item.is_sales_status %>
+        </div>
+        <div class="form-group row ">
+          <%= f.submit "編集する", edit_itemclass:"btn btn-success rounded-pill text-light text-center" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
