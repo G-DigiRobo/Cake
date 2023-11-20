@@ -1,2 +1,27 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<%# item edit 町井 %>
+<%= form_with model: @item, url: admin_item_path, method: :patch, local: true do |f| %>
+  <div><%= image_tag @item.get_profile_image, size: '50x50' %></div>選択されていません
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control book_title' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :detail %>
+    <%= f.text_area :detail, class: 'form-control book_body' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre_id %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: "選択してください", class: 'form-control') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control book_title' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_sales_status %>
+    <%= f.select :is_sales_status, options_for_select(Item.is_sales_statuses.keys.map { |key| [Item.is_sales_statuses[key], key] }), {}, class: 'is_sales_status' %>
+  </div>
+  <div>
+    <%= f.submit "編集する", class: "btn btn-outline-success" %>
+  </div>
+<% end %>

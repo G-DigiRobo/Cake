@@ -18,7 +18,7 @@ body {
 }
 
 .image{
- 
+
 //  background-image: image-url('cake_b.png');
 //   background-size: cover;
   background-position: center;
@@ -26,6 +26,9 @@ body {
   width: 480px;
 }
 
-.aa{ 
+.aa{
   margin-top: 150px;
+}
+.field_with_errors {
+  display: contents;
 }
