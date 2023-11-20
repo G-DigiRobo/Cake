@@ -1,2 +1,40 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<%# item new 町井 %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
+      <%= flash[:notice] %>
+      <% if @item.errors.any? %>
+      <%= @item.errors.count %>erros
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <h3 class='text-center mt-4'>商品詳細</h3>
+        <table class="table" style="border:none;">
+          <thead style="border:none;">
+            <tr>
+              <th style="border:none;">商品</th>
+              <th style="border:none;">商品名</th>
+              <th style="border:none;">税抜価格</th>
+              <th style="border:none;">ジャンル</th>
+              <th style="border:none;">ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= item.name %></td>
+              <td><%= item.price %></td>
+              <td><%= item.genre_id %></td>
+              <td><%= item.is_sales_status %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      </div>
+    </div>
+  </div>
