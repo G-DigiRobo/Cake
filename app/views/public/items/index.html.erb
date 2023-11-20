@@ -12,11 +12,11 @@
       <div class="row">
         <div>
           <% @items.each do |item| %>
-            <%= link_to item_path(@item) do %>
-              <%= image_tag @item.image, size: "50x50" %>
+            <%= link_to item_path(item) do %>
+              <%#= image_tag item.image, size: "50x50" %>
             <% end %>
-            <%= @item.name %>
-            <%= @item.price %>
+            <%= item.name %>
+            <%= item.price %>
           <% end %>
         </div>
       </div>
