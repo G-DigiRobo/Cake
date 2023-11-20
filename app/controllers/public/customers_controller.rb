@@ -25,6 +25,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(is_active: false)
       sign_out @customer
+      flash[:notice] = ""
       redirect_to root_path
     else
       render :confirm
