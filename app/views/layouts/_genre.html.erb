@@ -1,0 +1,17 @@
+<!--ジャンル検索部分テンプレート-->
+<table class="table border border-info mt-5">
+  <tbody>
+    <tr>
+      <td>
+        <h6><strong>ジャンル検索</strong></h6>
+      </td>
+    </tr>
+    <% genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= genre.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

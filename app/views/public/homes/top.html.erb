@@ -1,2 +1,37 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<!--トップ画面-->
+<div class="container-fluid">
+  <div class="row mx-auto mt-5">
+    <div class="col-2" style="text-align: left;">
+     <!--ジャンル検索-->
+       <%= render 'layouts/genre' ,genres:@genres %>
+    </div>
+    
+    <div class  = "image col-8"  style= "background-image: url('assets/cake_b.png'); ">
+      <div class=" text-center mt-5"> 
+          <h5>ようこそ　ながのけーき へ！</h5>
+          <div>このサイトは、ケーキ販売のECサイトになります。</div>
+          <div>会員でない方も商品の閲覧はできますが、</div>
+          <div>購入には会員登録が必要になります。</div>
+      </div>
+     
+        <!--新着商品一覧-->
+        <div class="row aa">
+          <div class="col-4 text-center">
+            <h4>新着商品</h4>
+              <% @items.each do |item| %>
+              <h4><%= link_to item.name, item_path(item) %></h4>
+              <p><%= item.price %></p>
+             <%= link_to image_tag(item.image.variant(resize: '100x100')), item_path(item) %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+  </div> 
+</div>
+      <!--ここまで-->
+       <!-- 全ての商品を見るボタン -->
+    <div class="text-right">
+      <%= link_to items_path, class:"btn btn-info rounded-pill text-light" do %>
+        全ての商品を見る
+      <% end %>
+    </div>
