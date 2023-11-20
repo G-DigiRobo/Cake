@@ -1,12 +1,13 @@
 class Public::ShippingAddressesController < ApplicationController
-  before_action :find_address, only: [:edit, :update, :destroy]
+  before_action :authenticate_customer!
+  # find_address, only: [:edit, :update, :destroy]
    
     def new
       @shipping_address = ShippingAddress.new
     end
     
     def index
-      @shipping_addresses = current_customer.shipping_addresses 
+      @shipping_addresses = current_customer.addresses 
     end
   
     def edit

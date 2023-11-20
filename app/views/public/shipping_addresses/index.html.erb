@@ -5,8 +5,8 @@
       <h2>配送先　登録・一覧</h2>
     </div>
   </div>
-    <%= form_with(model: @shipping_address, url: shipping_addresses_path, class: "form") do |f| %>
-    <%= render "public/shared/error_messages", resource: @shipping_address %>
+    <%= form_with model: @addresses, url: shipping_addresses_path, class: "form" do |f| %>
+    <!--%= render "public/shared/error_messages", resource: @shipping_addresses %>-->
 <!--郵便番号-->
     <div class="row">
       <div class="col-md-6">
@@ -30,7 +30,6 @@
       <div class="col-md-6">
         <div class="form-group">
           <p>宛名</p>
-          <%= f.label :name %>
           <%= f.text_field :name, class: "form-control", autofocus: true %>
         </div>
       </div>
