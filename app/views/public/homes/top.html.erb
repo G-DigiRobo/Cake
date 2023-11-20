@@ -2,8 +2,8 @@
 <div class="container-fluid">
   <div class="row mx-auto mt-5">
     <div class="col-2" style="text-align: left;">
-     ジャンル検索
-       <!--%= render 'layouts/genre' ,genres:@genres %>-->
+     <!--ジャンル検索-->
+       <%= render 'layouts/genre' ,genres:@genres %>
     </div>
     
     <div class  = "image col-8"  style= "background-image: url('assets/cake_b.png'); ">
@@ -15,23 +15,23 @@
       </div>
      
         <!--新着商品一覧-->
-      <div class="row aa"> 
-        <div class="col-4 text-center"> 
-          <h4>新着商品</h4>
-            <table>
-              <tbody>
-                <!--% @items.each do |item| %>-->
-                  <tr>
-                    <!--<td>%= item.name %></td>-->
-                    <!--<td>%= item.price %></td>-->
-                    <!--<td>%= image_tag item.image.variant(resize:'100x100')%></td> -->
-                  </tr>
-                <!--% end %>-->
-              </tbody>
-            </table>
+        <div class="row aa">
+          <div class="col-4 text-center">
+            <h4>新着商品</h4>
+              <% @items.each do |item| %>
+              <h4><%= link_to item.name, item_path(item) %></h4>
+              <p><%= item.price %></p>
+             <%= link_to image_tag(item.image.variant(resize: '100x100')), item_path(item) %>
           </div>
+          <% end %>
         </div>
       </div>
-    </div> 
-      <!--ここまで-->
+  </div> 
 </div>
+      <!--ここまで-->
+       <!-- 全ての商品を見るボタン -->
+    <div class="text-right">
+      <%= link_to items_path, class:"btn btn-info rounded-pill text-light" do %>
+        全ての商品を見る
+      <% end %>
+    </div>
