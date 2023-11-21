@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_one_attached :image
 
-  enum is_sales_status: {
-    "販売中":0, "販売停止中":1
-  }
+  # enum is_sales_status: {
+    # "販売中":0, "販売停止中":1
+  # }
 
   def get_profile_image(width, height)
   unless image.attached?
@@ -17,5 +17,10 @@ class Item < ApplicationRecord
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
     image.variant(resize_to_limit: [width, height]).processed
+  end
+  
+  def tax_included_price
+    tax_rate = 0.08
+    price*(1+tax_rate)
   end
 end

@@ -1,21 +1,32 @@
 <div class="container-fluid">
   <div class="row mx-auto mt-5">
-    <div class="col-2" style="text-align: left;">
-     ジャンル検索
-       <!--%= render 'layouts/genre' ,genres:@genres %>-->
+    <div class="col-xl-2" style="text-align: left;">
+      <%= render 'layouts/genre' ,genres:@genres %>
     </div>
-    <div class="col-10">
+    <div class="col-xl-10">
       <div class="row">
-        <div class="col-4">
-          <%= image_tag @item.image, size: "100x100" %>
+        <div class="col-xl-4">
+          <%= image_tag @item.image, size: "300x300" %>
         </div>
-        <div class="col-6">
-          <p><strong><%= item.name %></strong></p><br>
+        <div class="col-xl-6">
+          <p><strong><%= @item.name %></strong></p><br>
           <p><%= @item.detail %></p>
-          <p><%= @item.price %></p>
+          <p><strong><%= number_to_currency(@item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
         </div>
       </div>
-      カート追加
+      <div class="row">
+        <div class="col-xl-10 d-flex justify-content-end">
+          <%= form_with(model: @cart_item,url: cart_items_path, method: :post, local: true) do |f| %>
+            <div class="d-flex align-items-center">
+              <%= f.select :quantity, (1..10), {include_blank: "個数選択"}, class: 'form-control col-6 mr-2' %>
+              <%= f.hidden_field :item_id, :amount => @item.id %>
+              <!--第一引数にオブジェクト名item_id、第二引数部分にamountで受け渡す値 @item.idを指定-->
+              <!--cartitem controllerの cart_items.find_by(item_id:に送ることができる-->
+              <%= f.submit "カートに入れる", class: "btn btn-primary rounded-pill" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
