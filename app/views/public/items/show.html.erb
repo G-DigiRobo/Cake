@@ -19,8 +19,8 @@
           <%= form_with(model: @cart_item,url: cart_items_path, method: :post, local: true) do |f| %>
             <div class="d-flex align-items-center">
               <%= f.select :quantity, (1..10), {include_blank: "個数選択"}, class: 'form-control col-6 mr-2' %>
-              <%= f.hidden_field :item_id, :value => @item.id %>
-              <!--第一引数にオブジェクト名item_id、第二引数部分にvalueで受け渡す値 @item.idを指定-->
+              <%= f.hidden_field :item_id, :amount => @item.id %>
+              <!--第一引数にオブジェクト名item_id、第二引数部分にamountで受け渡す値 @item.idを指定-->
               <!--cartitem controllerの cart_items.find_by(item_id:に送ることができる-->
               <%= f.submit "カートに入れる", class: "btn btn-primary rounded-pill" %>
             </div>
