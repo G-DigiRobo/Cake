@@ -4,14 +4,6 @@
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
       <h2 class="text-center mt-4">商品一覧</h2>
       <%= flash[:notice] %>
-      <% if @item.errors.any? %>
-      <%= @item.errors.count %>erros
-        <ul>
-          <% @item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
         <table class="table" style="border:none;">
           <thead style="border:none;">
             <tr>
@@ -25,7 +17,7 @@
           <tbody>
             <% @items.each do |item| %>
             <tr>
-              <td><%= item.id %></td>
+              <td><%= link_to item.id, admin_item_path(item.id) %></td>
               <td><%= item.name %></td>
               <td><%= item.price %></td>
               <td><%= item.genre_id %></td>
