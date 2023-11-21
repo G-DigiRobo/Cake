@@ -3,30 +3,34 @@ class Public::ShippingAddressesController < ApplicationController
   # find_address, only: [:edit, :update, :destroy]
    
     def new
-      @shipping_address = ShippingAddress.new
+      @shipping_address = Address.new
     end
     
     def index
       @shipping_addresses = current_customer.addresses 
+      @addresses = Address.new
+      #@shipping_address = Address.find(params[:id]) 
     end
   
     def edit
+      @shipping_address = Address.find(params[:id]) 
     end
     
     def create
-      @shipping_address = ShippingAddress.new(shipping_address_params)
+      @shipping_address = Address.new(shipping_address_params)
       @shipping_address.customer = current_customer
       
       if @shipping_address.save
-        redirect_to @shipping_address, notice: 'Shipping address was successfully created.'
+        redirect_to shipping_addresses_path, notice: 'Shipping address was successfully created.'
       else
         render :new
       end
     end
  
     def update
+      @shipping_address = Address.find(params[:id]) 
       if @shipping_address.update(shipping_address_params)
-        redirect_to @shipping_address, notice: 'Shipping address was successfully updated.'
+        redirect_to shipping_addresses_path, notice: 'Shipping address was successfully updated.'
       else
         render :edit
       end
@@ -34,15 +38,15 @@ class Public::ShippingAddressesController < ApplicationController
 
     def destroy
       @shipping_address.destroy
-      redirect_to shipping_addresses_url, notice: 'Shipping address was successfully destroyed.'
+      redirect_to shipping_addresses_path, notice: 'Shipping address was successfully destroyed.'
     end
     
   private
     def find_address
-      @shipping_address = current_customer.shipping_addresses.find(params[:id]) 
+      @shipping_address = current_customer.addresses.find(params[:id]) 
     end
     
     def shipping_address_params
-      params.require(:shipping_address).permit(:recipient_name, :address_line_1, :address_line_2, :city, :state, :postal_code, :country)
+      params.require(:address).permit(:name,:address,:postcode)
     end
 end
