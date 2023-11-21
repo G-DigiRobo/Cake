@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    get "search" => "searches#search"
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   end
   scope module: :public do
     root to: 'homes#top'
+    get "search" => "searches#search"
     get '/about'=>'homes#about'
     resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show] do
