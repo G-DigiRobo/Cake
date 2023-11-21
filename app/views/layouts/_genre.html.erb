@@ -5,17 +5,13 @@
       <td>
         <h6><strong>ジャンル検索</strong></h6>
       </td>
-     
-      <tbody>
-        <%= genres.each do |genre|%>
-          <tr>
-            <td>
-              <%= genre.name %>
-            </td>
-          </tr>
-          <% end %>
-      </tbody>
-      
     </tr>
+    <% genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= genre.name %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
