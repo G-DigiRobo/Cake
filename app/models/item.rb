@@ -20,7 +20,11 @@ class Item < ApplicationRecord
   end
   
   def tax_included_price
-    tax_rate = 0.08
+    tax_rate = 0.1
     price*(1+tax_rate)
+  end
+  
+  def self.looks(word)
+    where("name LIKE ?", "%#{word}%")
   end
 end

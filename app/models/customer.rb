@@ -16,4 +16,8 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, presence: true
   validates :email, presence: true, uniqueness: true
+
+  def self.looks(word)
+    where("last_name LIKE :word OR first_name LIKE :word OR last_name_kana LIKE :word OR first_name_kana LIKE :word", word: "%#{word}%")
+  end
 end
