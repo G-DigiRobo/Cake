@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_one_attached :image
 
-  enum is_sales_status: {
-    "販売中":0, "販売停止中":1
-  }
+  # enum is_sales_status: {
+    # "販売中":0, "販売停止中":1
+  # }
 
   def get_profile_image(width, height)
   unless image.attached?

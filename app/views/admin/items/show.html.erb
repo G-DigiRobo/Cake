@@ -7,27 +7,27 @@
           <%= label :image, "商品画像" ,class:'col-12'%><br>
           <%= image_tag @item.get_profile_image(300, 300) %>
         </div>
-        <div class="form-group row">
-          <%= label :title, "商品名" , class: 'col-12'%>
-            <%= @item.name %>
+        <div class="form-group ">
+          <%= label :title, "商品名" , class: 'col-2'%>
+          <%= @item.name %>
         </div>
-        <div class="form-group row">
+        <div class="form-group">
           <%= label :opinion, "商品説明" %>
           <%= @item.detail %>
         </div>
-        <div class="form-group row">
+        <div class="form-group">
           <%= label :name, "ジャンル" %>
           <%= @item.genre_id %>
         </div>
-        <div class="form-group row ">
+        <div class="form-group">
           <%= label :title, "税抜価格" %>
           <%= @item.price %>円
         </div>
-        <div class="form-group row ">
+        <div class="form-group ">
           <%= label :is_sales_status, "販売ステータス" %>
           <%= @item.is_sales_status %>
         </div>
-        <div class="form-group row ">
+        <div class="form-group ">
           <%= link_to "編集する", edit_admin_item_path(@item.id),class:"btn btn-success rounded-pill text-light text-center" %>
         </div>
       </div>
