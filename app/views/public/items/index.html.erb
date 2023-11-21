@@ -1,24 +1,28 @@
 <div class="container-fluid">
   <div class="row mx-auto mt-5">
     <div class="col-2" style="text-align: left;">
-     ジャンル検索
-       <!--%= render 'layouts/genre' ,genres:@genres %>-->
+       <%= render 'layouts/genre' ,genres:@genres %>
     </div>
     <div class="col-10">
       <div class="row align-items-baseline">
         <h2><strong>商品一覧</strong></h2>
         <p class="ml-2">(全<%= @items.count %>件)</p>
       </div>
-      <div class="row">
-        <div>
-          <% @items.each do |item| %>
-            <%= link_to item_path(@item) do %>
-              <%= image_tag @item.image, size: "50x50" %>
+      <div class="row flex">
+        <% @items.each do |item| %>
+          <div class="item mr-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, size: "200x200" %>
             <% end %>
-            <%= @item.name %>
-            <%= @item.price %>
-          <% end %>
-        </div>
+            <div class="item-detail">
+              <p><strong><%= item.name %></strong></p>
+              <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="row mx-auto">
+        <%= paginate @items %>
       </div>
     </div>
   </div>
