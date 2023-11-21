@@ -1,2 +1,42 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<!--管理者側・会員情報詳細ページ(塚本-->
+<div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-9 mx-auto align-items-center">
+        <h2 class="text-center my-4"><%= @customer.last_name + @customer.first_name %>の会員詳細</h2>
+            <table class="table">
+              <tr>
+                <td>氏名</td>
+                <td><%= @customer.last_name %><%= @customer.first_name %></td>
+              </tr>
+              <tr>
+                <td>カナ</td>
+                <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td><%= @customer.postcode %></td>
+              </tr>
+              <tr>
+                <td>住所</td>
+                <td><%= @customer.address %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><%= @customer.telephone_number %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= @customer.email %></td>
+              </tr>
+              <tr>
+                <td>会員ステータス</td>
+                <td><%= @customer.is_active ? "有効" : '<span class="text-muted">退会</span>'.html_safe %></td>
+              </tr>
+            </table>
+            <div class="row my-5 text-center">
+              <div class="col-5"><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary rounded-pill text-lig ml-5" %></div>
+              <div class="col-7"><%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary rounded-pill text-lig" %></div>
+            </div>
+      </div>
+    </div>
+  </div>
