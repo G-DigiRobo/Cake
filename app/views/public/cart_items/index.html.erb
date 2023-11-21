@@ -1,2 +1,39 @@
-<h1>Public::CartItems#index</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
+      <h2 class="text-center mt-4">ショッピングカート</h2>
+      <div class="text-right"><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "本当に空にしますか？", class: "btn btn-sm btn-danger" %></div>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th scope="col">商品名</th>
+            <th scope="col">単価（税込)</th>
+            <th scope="col">数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= image_tag cart_item.item.get_item_image(100,100) %></td>
+              <td><%= cart_item.name %></td>
+              <td><%= cart_item.item.with_tax_price%></td>
+              <td><%= form_with(model: cart_item, local: true) do |form| %>
+                    <%= form.select :amount, options_for_select((1..100).to_a, cart_item.amount), { prompt: 'Select an amount' }, { class: 'form-control' } %>
+                    <%= form.submit "変更", class: 'btn btn-primary' %>
+                  <% end %>
+              </td>
+              <td><%= cart_item.subtotal%></td>
+              <td><%= link_to 'Destroy', cart_item.id, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+            </tr>
+            <% @total += cart_item.subtotal %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "買い物を続ける", items_path %>
+    </div>
+  </div>
+</div>
+
 
