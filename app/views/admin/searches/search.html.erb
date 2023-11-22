@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row mx-auto mt-5">
+    <div class="col-2" style="text-align: left;">
+       <%= render 'layouts/genre' ,genres:@genres %>
+    </div>
+    <% if @range == "Customer" %>
+      <div class="col-10">
+        <div class="row align-items-baseline">
+          <h2><strong>ユーザー検索結果</strong></h2>
+          <p class="ml-2">(全<%= @customers.count %>件)</p>
+        </div>
+        <table class="table table-hover table-inverse">
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        <tb>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.is_active ? "有効" : '<span class="text-muted">退会</span>'.html_safe %></td>
+        </tr>
+        <% end %>
+        </tb>
+      </table>
+      </div>
+    <% else %>
+      <div class="col-10">
+        <div class="row align-items-baseline">
+          <h2><strong>商品検索結果</strong></h2>
+          <p class="ml-2">(全<%= @items.count %>件)</p>
+        </div>
+        <div class="row d-flex">
+          <% @items.each do |item| %>
+            <div class="item mr-3">
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.image, size: "200x200" %>
+              <% end %>
+              <div class="item-detail">
+                <p><strong><%= item.name %></strong></p>
+                <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

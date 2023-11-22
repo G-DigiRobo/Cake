@@ -2,7 +2,8 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
     @items = Item.all
-    @total = 0
+    @cart_items= current_customer.cart_items.all
+    @sum = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.item.tax_included_price * cart_item.amount }
   end
 
   def create
@@ -15,8 +16,14 @@ class Public::CartItemsController < ApplicationController
     @cart_item.customer_id = current_customer.id
     @cart_item.save
     redirect_to cart_items_path
- end
+  end
 
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_back(fallback_location: root_path)
+
+  end
 
   def delete
     @cart_item = CartItem.find(params[:id])
@@ -28,5 +35,9 @@ class Public::CartItemsController < ApplicationController
     @cart_items = CartItem.all
     @cart_items.destroy_all
     redirect_to cart_items_path, notice: 'カートが空になりました'
+  end
+
+  def cart_item_params
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 end

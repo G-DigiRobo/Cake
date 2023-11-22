@@ -8,30 +8,36 @@
     
     <div class  = "image col-8"  style= "background-image: url('assets/cake_b.png'); ">
       <div class=" text-center mt-5"> 
-          <h5>ようこそ　ながのけーき へ！</h5>
-          <div>このサイトは、ケーキ販売のECサイトになります。</div>
-          <div>会員でない方も商品の閲覧はできますが、</div>
-          <div>購入には会員登録が必要になります。</div>
+          <h4><i class="fa-solid fa-democrat"></i>ようこそ　ながのけーき へ！<i class="fa-solid fa-candy-cane"></i></h4>
+           <h5>このサイトは、ケーキ販売のECサイトになります</h5>
+           <h5>会員でない方も商品の閲覧はできますが</h5>
+           <h5>購入には会員登録が必要になります</h5>
       </div>
      
         <!--新着商品一覧-->
-        <div class="row aa">
-          <div class="col-4 text-center">
-            <h4>新着商品</h4>
-              <% @items.each do |item| %>
-              <h4><%= link_to item.name, item_path(item) %></h4>
-              <p><%= item.price %></p>
-             <%= link_to image_tag(item.image.variant(resize: '100x100')), item_path(item) %>
+     <div class="row aa">
+        <div class="col-12 text-center">
+          <h4><i class="fa-regular fa-snowflake"></i>新着商品<i class="fa-regular fa-snowflake"></i></h4>
+          <div class="row flex justify-content-start">
+            <% @items.each do |item| %>
+              <div class="col-md-3 mb-3">
+                <div class="item">
+                  <%= link_to image_tag(item.image.variant(resize: '150x150')), item_path(item) %>
+                  <p><%= link_to item.name, item_path(item), class: "text-decoration-none" %></p>
+                  <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
+    </div>
   </div> 
 </div>
       <!--ここまで-->
-       <!-- 全ての商品を見るボタン -->
-    <div class="text-right">
-      <%= link_to items_path, class:"btn btn-info rounded-pill text-light" do %>
-        全ての商品を見る
-      <% end %>
-    </div>
+   <!-- 全ての商品を見るボタン -->
+<div class="text-right">
+  <%= link_to items_path, class:"btn btn-info rounded-pill text-light" do %>
+    全ての商品を見る
+  <% end %>
+</div>
