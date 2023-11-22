@@ -8,7 +8,7 @@
         <h2><strong>商品一覧</strong></h2>
         <p class="ml-2">(全<%= @items.count %>件)</p>
       </div>
-      <div class="row flex">
+      <div class="row d-flex">
         <% @items.each do |item| %>
           <div class="item mr-3">
             <%= link_to item_path(item) do %>
