@@ -15,8 +15,12 @@ class Public::CartItemsController < ApplicationController
     @cart_item.customer_id = current_customer.id
     @cart_item.save
     redirect_to cart_items_path
- end
+  end
 
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+  end
 
   def delete
     @cart_item = CartItem.find(params[:id])
@@ -28,5 +32,9 @@ class Public::CartItemsController < ApplicationController
     @cart_items = CartItem.all
     @cart_items.destroy_all
     redirect_to cart_items_path, notice: 'カートが空になりました'
+  end
+
+  def cart_item_params
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 end
