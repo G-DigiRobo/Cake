@@ -3,33 +3,36 @@
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
       <h2 class="text-center mt-4">商品詳細</h2>
-        <div class="form-group row">
-          <%= label :image, "商品画像" ,class:'col-12'%><br>
-          <%= image_tag @item.get_profile_image(300, 300) %>
-        </div>
-        <div class="form-group ">
-          <%= label :title, "商品名" , class: 'col-2'%>
-          <%= @item.name %>
-        </div>
-        <div class="form-group">
-          <%= label :opinion, "商品説明" %>
-          <%= @item.detail %>
-        </div>
-        <div class="form-group">
-          <%= label :name, "ジャンル" %>
-          <%= @item.genre_id %>
-        </div>
-        <div class="form-group">
-          <%= label :title, "税抜価格" %>
-          <%= @item.price %>円
-        </div>
-        <div class="form-group ">
-          <%= label :is_sales_status, "販売ステータス" %>
-          <%= @item.is_sales_status %>
-        </div>
-        <div class="form-group ">
-          <%= link_to "編集する", edit_admin_item_path(@item.id),class:"btn btn-success rounded-pill text-light text-center" %>
-        </div>
+      <div class="row">
+        <%= image_tag @item.get_item_image(300, 300) %>
+        <table>
+          <tbody>
+            <tr>
+              <th>商品名</th>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <th>商品説明</th>
+              <td><%= @item.detail %></td>
+            </tr>
+            <tr>
+              <th>ジャンル</th>
+              <td><%= @item.genre_id %></td>
+            </tr>
+            <tr>
+              <th>税抜価格</th>
+              <td><%= @item.price %>円</td>
+            </tr>
+            <tr>
+              <th>販売ステータス</th>
+              <td><%= @item.is_sales_status %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <%= link_to "編集する", edit_admin_item_path(@item.id),class:"btn btn-success rounded-pill text-light text-center" %>
       </div>
     </div>
   </div>
+</div>
