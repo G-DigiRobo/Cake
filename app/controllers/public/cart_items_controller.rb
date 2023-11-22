@@ -2,7 +2,8 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
     @items = Item.all
-    @total = 0
+    @cart_items= current_customer.cart_items.all
+    @sum = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.item.tax_included_price * cart_item.amount }
   end
 
   def create
@@ -20,6 +21,8 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
+    redirect_back(fallback_location: root_path)
+
   end
 
   def delete
