@@ -55,3 +55,10 @@ ja:
               blank: "を入力してください"
             address:
               blank: "を入力してください"
+  devise:
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+      admin:
+        signed_in: '管理者としてログインしました。'
+        signed_out: '管理者としてログアウトしました。'
