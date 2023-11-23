@@ -63,3 +63,6 @@ ja:
         signed_in: '管理者としてログインしました。'
         signed_out: '管理者としてログアウトしました。'
         already_signed_out: '既にログアウトしています。'
+    registrations:
+      customer:
+        signed_up: 'ユーザーが登録されました。'
