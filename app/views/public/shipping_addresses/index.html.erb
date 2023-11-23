@@ -2,7 +2,7 @@
 <div class="container mt-4 mb-4">
   <div class="row">
     <div class="col-md-12">
-      <h2>配送先　登録・一覧</h2>
+      <h2><i class="fa-solid fa-gifts fa-bounce"></i>配送先　登録・一覧<i class="fa-solid fa-box-open fa-bounce"></i></h2>
     </div>
   </div>
     <%= form_with model: @addresses, url: shipping_addresses_path, class: "form" do |f| %>
@@ -62,7 +62,7 @@
         <td> <%= address.name %></td> 
         <td> 
           <%= link_to "編集", edit_shipping_address_path(address), class:"btn btn-warning rounded-pill text-light" %>
-          <%= button_to "削除", shipping_addresses_path, method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-danger rounded-pill text-light", form_class: "d-inline" %>
+          <%= link_to "削除", shipping_address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-danger rounded-pill text-light", form_class: "d-inline" %>
         </td>
     <% end %>
       </tr>
