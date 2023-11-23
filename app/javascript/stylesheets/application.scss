@@ -1,3 +1,4 @@
+
 // ブートストラップボタン色変更
 $primary: #2ca9e1;
 $secondary: #c0c6c9;
@@ -44,4 +45,30 @@ footer {
   bottom: 0;
   width: 100%;
   height: 50px; /* フッターの高さに合わせて調整 */
+}
+
+// フォント変更
+div{
+  font-family: 'Yomogi', cursive;
+}
+// テキスト動かす
+.wave-text {
+  position: relative;
+  animation: waveAnimation 1s ease-in-out infinite;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* 上に移動 */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.wave-text span {
+  animation-delay: calc(0.2s * var(--index));
 }
