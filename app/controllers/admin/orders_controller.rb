@@ -1,16 +1,19 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
+    # @order_details = OrderDetail.where(order_id: params[:id])
   end
 
   def update
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
     if @order.update(order_params)
-      flash[:notice] = "注文ステータスを更新しました"
-      redirect_to admin_order_path(@order)
-    else
-      render :show
+      if @order.order_status == "payment_confirmation"
+        @order_details.update_all(status: "awaiting_manufacture")
+      end
     end
+      redirect_to admin_order_path(@order)
   end
 
   private
