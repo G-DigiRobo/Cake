@@ -3,29 +3,31 @@
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
       <h2 class="text-center mt-4">商品一覧</h2>
-      <%= flash[:notice] %>
-        <table class="table" style="border:none;">
-          <thead style="border:none;">
-            <tr>
-              <th style="border:none;">商品ID</th>
-              <th style="border:none;">商品名</th>
-              <th style="border:none;">税抜価格</th>
-              <th style="border:none;">ジャンル</th>
-              <th style="border:none;">ステータス</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @items.each do |item| %>
-            <tr>
-              <td><%= link_to item.id, admin_item_path(item.id) %></td>
-              <td><%= item.name %></td>
-              <td><%= item.price %></td>
-              <td><%= item.genre.name %></td>
-              <td><%= item.is_sales_status ? "販売中" : "販売停止中" %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="d-flex justify-content-end mb-3">
+        <%= link_to "新規登録", new_admin_item_path, class: "btn btn-primary rounded-pill" %>
       </div>
+      <table class="table" style="border:none;">
+        <thead style="border:none;">
+          <tr>
+            <th style="border:none;">商品ID</th>
+            <th style="border:none;">商品名</th>
+            <th style="border:none;">税抜価格</th>
+            <th style="border:none;">ジャンル</th>
+            <th style="border:none;">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= link_to item.id, admin_item_path(item.id) %></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.name %></td>
+            <td><%= item.is_sales_status ? "販売中" : "販売停止中" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
