@@ -37,8 +37,10 @@ class Public::ShippingAddressesController < ApplicationController
     end
 
     def destroy
-      @shipping_address.destroy
-      redirect_to shipping_addresses_path, notice: 'Shipping address was successfully destroyed.'
+      @shipping_address = Address.find(params[:id])
+      if @shipping_address.destroy
+        redirect_to shipping_addresses_path, notice: 'Shipping address was successfully deleted.'
+      end
     end
     
   private
