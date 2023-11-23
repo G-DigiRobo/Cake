@@ -16,6 +16,13 @@ class Admin::OrdersController < ApplicationController
       redirect_to admin_order_path(@order)
   end
 
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    flash[:notice] = "注文が正常にキャンセルされました。"
+    redirect_to admin_root_path
+  end
+
   private
 
   def order_params

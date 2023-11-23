@@ -19,7 +19,10 @@
             <td><%= order.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M:%S') %></td>
             <td><%= order.name %></td>
             <td></td>
-            <td><%= order.order_status_i18n %></td>
+            <td>
+              <%= order.order_status_i18n %>
+              <%= link_to "キャンセル", admin_order_path(order), method: :delete, data: { confirm: "本当にキャンセルしますか？" }, class: "btn btn-sm btn-danger"%>
+            </td>
           </tr>
           <% end %>
         </tbody>

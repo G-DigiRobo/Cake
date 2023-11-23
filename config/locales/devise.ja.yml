@@ -43,6 +43,7 @@ ja:
           attributes:
             email:
               blank: "を入力してください"
+              taken: "このメールアドレスは既に使用されています。"
             password:
               blank: "を入力してください"
             last_name:

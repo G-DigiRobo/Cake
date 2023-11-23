@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-6">
           <table class="table table-bordered">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th scope="col">商品名</th>
                 <th scope="col" class="text-center align-middle">単価(税込)</th>
@@ -19,9 +19,9 @@
             <tbody>
               <% @cart_items.each do |cart_item| %>
                 <tr>
-                  <td class="align-middle">
+                  <td class="align-middle" style="display: flex; align-items: center;">
                     <%= image_tag cart_item.item.image, size: "100x100", class: "img-thumbnail" %>
-                    <strong><%= cart_item.item.name %></strong>
+                    <%= cart_item.item.name %>
                   </td>
                   <td class="text-center align-middle"><%= number_with_delimiter(cart_item.item.tax_included_price) %></td>
                   <td class="text-center align-middle"><%= cart_item.amount %></td>
