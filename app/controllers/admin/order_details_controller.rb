@@ -3,9 +3,10 @@ class Admin::OrderDetailsController < ApplicationController
   def update
     @order_detail = OrderDetail.find(params[:id])
     if @order_detail.update(order_detail_params)
-      redirect_to admin_order_detail_path(@order_detail), notice: '制作ステータスが更新されました。'
+      flash[:notice] = "製作ステータスを更新しました"
+      redirect_to request.referrer
     else
-      render :admin_order_path
+      render :request.referrer
     end
   end
 

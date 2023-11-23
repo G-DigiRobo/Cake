@@ -11,7 +11,7 @@
               </tr>
               <tr>
                 <td><strong>注文日</strong></td>
-                <td><%= @order.created_at %></td>
+                <td><%= @order.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
               </tr>
               <tr>
                 <td><strong>配送先</strong></td>
@@ -33,22 +33,30 @@
             <% end %>
           </table>
           <table class="table table-hover table-inverse">
-            <tr>
-              <th>商品名</th>
-              <th>単価(税込価格)</th>
-              <th>数量</th>
-              <th>小計</th>
-              <th>製作ステータス</th>
-            </tr>
+            <th>
+              <tr>
+                <th>商品名</th>
+                <th>単価(税込価格)</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>製作ステータス</th>
+              </tr>
+            </th>
             <tb>
-            <tr>
-              <td><%= </td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+              <% @order.order_details.each do |order_detail| %>
+                <tr>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.tax_included_price %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td><%= order_detail.tax_included_price * order_detail.amount %></td>
+                  <td><%= order_detail.statu %></td>
+                </tr>
+              <% end %>
             </tb>
           </table>
+          <p>商品合計: <%= @order.order_details.sum { |order_detail| order_detail.tax_included_price * order_detail.amount } %></p>
+          <p>送料: <%= @order.postage %></p>
+          <p>請求金額合計: <%= @order.billing_amount %></p>
       </div>
     </div>
   </div>
