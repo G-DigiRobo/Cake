@@ -6,8 +6,10 @@
     <% if @range == "Customer" %>
       <div class="col-10">
         <div class="row align-items-baseline">
+          <i class="fa-regular fa-star fa-bounce"></i>
           <h2><strong>ユーザー検索結果</strong></h2>
           <p class="ml-2">(全<%= @customers.count %>件)</p>
+          <i class="fa-regular fa-star fa-bounce"></i>
         </div>
         <table class="table table-hover table-inverse">
           <tr>
@@ -31,8 +33,10 @@
     <% else %>
       <div class="col-10">
         <div class="row align-items-baseline">
+          <i class="fa-regular fa-star fa-bounce"></i>
           <h2><strong>商品検索結果</strong></h2>
           <p class="ml-2">(全<%= @items.count %>件)</p>
+          <i class="fa-regular fa-star fa-bounce"></i>
         </div>
         <div class="row d-flex">
           <% @items.each do |item| %>
