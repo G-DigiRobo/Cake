@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-7 col-md-9 mx-auto align-items-center">
-      <h2 class="text-center my-4"><%= @customer.last_name + @customer.first_name %>の会員情報編集</h2>
+      <h2 class="text-center my-4"><i class="fa-solid fa-seedling fa-bounce"></i> <%= @customer.last_name + @customer.first_name %>の会員情報編集 <i class="fa-solid fa-user-pen fa-bounce"></i></h2>
       <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
       <table class="table">
         <tr class="form-group">
@@ -42,7 +42,7 @@
         </tr>
       </table>
       <div class="row text-center">
-        <div class="col-8"><%= f.submit "変更を保存", class: "btn btn-primary rounded-pill text-lig ml-5" %></div>
+        <div class="col-8"><%= f.submit "変更を保存", class: "btn btn-dark rounded-pill text-lig ml-5" %></div>
       </div>
       <% end %>
     </div>

@@ -2,7 +2,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
-      <h2 class="text-center mt-4">商品詳細</h2>
+      <h2 class="text-center mt-4"><i class="fa-solid fa-store fa-bounce"></i> 商品詳細 <i class="fa-solid fa-basket-shopping fa-bounce"></i></h2>
       <div class="row">
         <div class='col-md-6'>
           <%= image_tag @item.get_item_image(300, 300) %>
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="row justify-content-end">
-        <%= link_to "編集する", edit_admin_item_path(@item.id),class:"btn btn-success rounded-pill text-light" %>
+        <%= link_to "編集する", edit_admin_item_path(@item.id),class:"btn btn-warning rounded-pill text-light" %>
       </div>
     </div>
   </div>
