@@ -2,7 +2,7 @@
   <div class="row mx-auto mt-5 text-center">
     <div class="col-12">
       <div class="row align-items-baseline">
-        <h2>注文情報確認</h2>
+        <h2><i class="fa-regular fa-clipboard fa-shake"></i>注文情報確認<i class="fa-solid fa-pen fa-shake"></i></h2>
       </div>
 
       <div class="row">
@@ -79,7 +79,7 @@
             <%= f.hidden_field :name, value: @order.name %>
             <%= f.hidden_field :order_status, value: @order.order_status %>
 
-            <%= f.submit "注文を確定する", class: 'btn btn-primary' %>
+            <%= f.submit "注文を確定する", class: 'btn btn-danger rounded-pill text-light' %>
           <% end %>
         </div>
       </div>

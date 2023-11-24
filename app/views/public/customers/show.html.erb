@@ -5,10 +5,10 @@
         <h2 class="text-center mt-4"><i class="fa-solid fa-house fa-bounce"></i>マイページ<i class="fa-solid fa-igloo fa-bounce"></i></h2>
         <div class="row my-3">
           <div class="col-3">
-           <strong>登録情報</strong>
+           <strong><i class="fa-solid fa-address-book fa-bounce"></i>登録情報<i class="fa-solid fa-icons fa-bounce"></i></strong>
           </div>
           <div class="col-8">
-             <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-dark rounded-pill text-lig" %>
+             <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-warning rounded-pill text-light" %>
           </div>
         </div>
             <table class="table table-hover">
@@ -42,7 +42,7 @@
                 <strong>配送先</strong>
               </div>
               <div class="col-8">
-                <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary rounded-pill text-lig" %>
+                <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-info rounded-pill text-light" %>
               </div>
             </div>
             <div class="row my-3">
@@ -50,7 +50,7 @@
                 <strong>注文履歴</strong>
               </div>
               <div class="col-8">
-                <%= link_to "一覧を見る", orders_path, class: "btn btn-primary rounded-pill text-lig" %>
+                <%= link_to "一覧を見る", orders_path, class: "btn btn-info rounded-pill text-light" %>
               </div>
             </div>
       </div>

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-7 col-md-9 mx-auto align-items-center">
-      <h2 class="text-center my-4">会員情報編集</h2>
+      <h2 class="text-center my-4"><i class="fa-regular fa-address-book fa-spin"></i>会員情報編集<i class="fa-brands fa-medium fa-spin"></i></h2>
       <%= form_with model: @customer do |f| %>
       <table class="table">
         <tr class="form-group">
@@ -35,8 +35,8 @@
         </tr>
       </table>
       <div class="row">
-        <div class="col-8"><%= f.submit "編集内容を保存する", class: "btn btn-primary rounded-pill text-lig ml-5" %></div>
-        <div class="col-4"><%= link_to "退会する", confirm_customers_path, class: "btn btn-danger rounded-pill text-lig" %></div>
+        <div class="col-8"><%= f.submit "編集内容を保存する", class: "btn btn-dark rounded-pill text-lig ml-5" %></div>
+        <div class="col-4"><%= link_to "退会する", confirm_customers_path, class: "btn btn-secondary rounded-pill text-light" %></div>
       </div>
       <% end %>
     </div>
