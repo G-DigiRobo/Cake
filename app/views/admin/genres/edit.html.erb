@@ -1,14 +1,14 @@
 <div class='container'>
   <div class='row'>
     <div class='col-lg-7 col-md-9 mx-auto align-items-center'>
-      <h3 class='text-center mt-4'>ジャンル編集</h3>
+      <h3 class='text-center mt-4'><i class="fa-brands fa-gofore fa-bounce"></i> ジャンル編集 <i class="fa-solid fa-file-pen fa-bounce"></i></h3>
       <%= form_with model: @genre, url: admin_genre_path(@genre.id) do |f| %>
         <table class="table" style="border:none;">
           <thead style="border:none;">
             <tr>
               <th style="border:none;">ジャンル名</th>
               <th style="border:none;"><%= f.text_field :name %></th>
-              <th style="border:none;"><%= f.submit "変更を保存", class:"btn btn-primary rounded-pill text-light" %></th>
+              <th style="border:none;"><%= f.submit "変更を保存", class:"btn btn-dark rounded-pill text-light" %></th>
             </tr>
           </thead>
         </table>

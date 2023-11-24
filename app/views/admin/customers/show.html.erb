@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-7 col-md-9 mx-auto align-items-center">
-        <h2 class="text-center my-4"><%= @customer.last_name + @customer.first_name %>の会員詳細</h2>
+        <h2 class="text-center my-4"><i class="fa-solid fa-feather-pointed fa-bounce"></i> <%= @customer.last_name + @customer.first_name %>の会員詳細 <i class="fa-solid fa-user-tag fa-bounce"></i></h2>
             <table class="table">
               <tr>
                 <td>氏名</td>
@@ -34,7 +34,7 @@
               </tr>
             </table>
             <div class="row my-5 text-center">
-              <div class="col-5"><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary rounded-pill text-lig ml-5" %></div>
+              <div class="col-5"><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-warning rounded-pill text-lig ml-5" %></div>
               <div class="col-7"><%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary rounded-pill text-lig" %></div>
             </div>
       </div>

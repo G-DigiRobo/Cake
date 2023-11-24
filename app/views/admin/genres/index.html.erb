@@ -12,7 +12,7 @@
           <% end %>
         </ul>
       <% end %>
-      <h3 class='text-center mt-4'>ジャンル一覧・追加</h3>
+      <h3 class='text-center mt-4'><i class="fa-solid fa-feather fa-bounce"></i> ジャンル一覧・追加 <i class="fa-solid fa-feather fa-bounce"></i></h3>
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
         <table class="table" style="border:none;">
           <thead style="border:none;">
@@ -36,7 +36,7 @@
             <tr>
               <td><%= genre.name %></td>
               <td>
-                <%= link_to edit_admin_genre_path(genre.id), class:"btn btn-primary rounded-pill text-light" do %>
+                <%= link_to edit_admin_genre_path(genre.id), class:"btn btn-warning rounded-pill text-light" do %>
                   編集する
                 <% end %>
               </td>
