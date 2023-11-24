@@ -62,7 +62,7 @@
         <td> <%= address.name %></td> 
         <td> 
           <%= link_to "編集", edit_shipping_address_path(address), class:"btn btn-warning rounded-pill text-light" %>
-          <%= link_to "削除", shipping_address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-danger rounded-pill text-light", form_class: "d-inline" %>
+          <%= link_to "削除", shipping_address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-dark rounded-pill text-light", form_class: "d-inline" %>
         </td>
     <% end %>
       </tr>

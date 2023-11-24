@@ -9,8 +9,8 @@
           退会する場合は、「退会する」をクリックしてください。
         </p>
           <div class="col d-flex justify-content-center mt-5">
-            <%= link_to "退会しない", edit_customer_path(@customer.id), class: "btn btn-primary rounded-pill text-lig mr-5" %>
-            <%= link_to "退会する", withdrawal_customers_path(@customer.id), method: :patch, class: "btn btn-danger rounded-pill text-lig ml-4" %>
+            <%= link_to "退会しない", edit_customer_path(@customer.id), class: "btn btn-dark rounded-pill text-lig mr-5" %>
+            <%= link_to "退会する", withdrawal_customers_path(@customer.id), method: :patch, class: "btn btn-secondary rounded-pill text-lig ml-4" %>
           </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
   <div class="row mx-auto mt-5 text-center">
     <div class="col-12">
       <div class="row align-items-baseline">
-        <h2>注文履歴詳細</h2>
+        <h2><i class="fa-solid fa-clipboard fa-bounce"></i>注文履歴詳細<i class="fa-solid fa-pen fa-bounce"></i></h2>
       </div>
       <table class="table table-bordered">
         <thead class="thead-light">
@@ -30,7 +30,7 @@
               <td><%= number_with_delimiter(order.billing_amount) %>円</td>
               <td><%= order.order_status_i18n %></td>
               <td>
-                <%= link_to "表示する", order_path(order), class: 'btn btn-primary' %>
+                <%= link_to "表示する", order_path(order), class: 'btn btn-info rounded-pill text-light' %>
               </td>
             </tr>
           <% end %>
