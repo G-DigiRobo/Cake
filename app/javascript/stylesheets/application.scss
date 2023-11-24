@@ -19,11 +19,15 @@ body {
   position: relative;
   min-height: 100vh;
 }
-
+// とっぷ画像
 .image{
+  background-position: center;
+  height: 350px;
+  width: 480px;
+}
 
-//  background-image: image-url('cake_b.png');
-//   background-size: cover;
+.complete-image{
+  margin-top: 70px;
   background-position: center;
   height: 350px;
   width: 480px;
