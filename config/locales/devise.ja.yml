@@ -43,6 +43,7 @@ ja:
           attributes:
             email:
               blank: "を入力してください"
+              taken: "このメールアドレスは既に使用されています。"
             password:
               blank: "を入力してください"
             last_name:
@@ -63,3 +64,6 @@ ja:
         signed_in: '管理者としてログインしました。'
         signed_out: '管理者としてログアウトしました。'
         already_signed_out: '既にログアウトしています。'
+    registrations:
+      customer:
+        signed_up: 'ユーザーが登録されました。'
