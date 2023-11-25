@@ -17,11 +17,13 @@
 <!--部分テンプレート-->
   <body>
     <%= render 'layouts/header' %>
-    <% flash.each do |key, message| %>
-      <div class="alert alert-<%= bootstrap_class_for_flash(key) %>">
-        <%= message %>
-      </div>
-    <% end %>
+    <div class="text-center">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= bootstrap_class_for_flash(key) %> mx-auto">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
     <main>
       <%= yield %>
     </main>
