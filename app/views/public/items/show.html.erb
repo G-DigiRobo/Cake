@@ -17,6 +17,9 @@
       <div class="row">
         <% if customer_signed_in? %>
           <div class="col-xl-10 d-flex justify-content-end">
+            <% if @cart_item.errors.any? %>
+              <div class="col-3" style="margin-top: 5px;">個数を入力してください</div>
+            <% end %>
             <%= form_with(model: @cart_item,url: cart_items_path, method: :post, local: true) do |f| %>
               <div class="d-flex align-items-center">
                 <%= f.select :amount, (1..10), {include_blank: "個数選択"}, class: 'form-control col-6 mr-2' %>

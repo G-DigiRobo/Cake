@@ -14,8 +14,13 @@ class Public::CartItemsController < ApplicationController
       @cart_item = CartItem.new(cart_item_params)
     end
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      @genres = Genre.all
+      @item = Item.find(params[:cart_item][:item_id])
+      render template: "public/items/show"
+    end
   end
 
   def update
