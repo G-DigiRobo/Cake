@@ -23,6 +23,7 @@ class Public::OrdersController < ApplicationController
       if address_check(@order)
         render :confirm
       else
+        flash[:notice]="入力されていない項目があります。"
         render :new
       end
     end
