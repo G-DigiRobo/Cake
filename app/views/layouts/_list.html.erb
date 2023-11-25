@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row mx-auto mt-5">
+    <div class="col-2" style="text-align: left;">
+       <%= render 'layouts/genre' ,genres:@genres %>
+    </div>
+    <div class="col-10">
+      <div class="row align-items-baseline">
+        <h2>
+          <% if current_page?(genre_search_path) %>
+            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>検索結果</strong> "<%= @genre.name %>"
+          <% elsif current_page?(search_path) %>
+            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>検索結果</strong> "<%= @word %>"
+          <% elsif current_page?(items_path) %>
+            <i class="fa-solid fa-democrat fa-beat"></i><strong>商品一覧</strong><i class="fa-solid fa-candy-cane fa-beat"></i>
+          <% end %>
+        </h2>
+        <p class="ml-2">(全<%= items.count %>件)</p>
+      </div>
+      <div class="row d-flex">
+        <% items.each do |item| %>
+          <div class="item mr-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+            <div class="item-detail">
+              <p><strong><%= link_to item.name, item_path(item) %></strong></p>
+              <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mx-auto justify-content-center">
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>
+<script src="https://app.embed.im/snow.js" defer></script>
