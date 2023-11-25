@@ -8,8 +8,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 <!--フォント-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
 <!--フォントオーサムurl-->
     <script src="https://kit.fontawesome.com/7c3c855863.js" crossorigin="anonymous"></script>
@@ -17,10 +17,14 @@
 <!--部分テンプレート-->
   <body>
     <%= render 'layouts/header' %>
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= bootstrap_class_for_flash(key) %>">
+        <%= message %>
+      </div>
+    <% end %>
     <main>
-      <%= flash[:notice] %>
       <%= yield %>
-      </main>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>
