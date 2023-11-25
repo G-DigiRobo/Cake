@@ -3,8 +3,6 @@ class Public::SearchesController < ApplicationController
     @genres = Genre.all
     @range = params[:range]
     @items = Item.looks(params[:word])
-    if params[:word] == 'adminsignin'
-      redirect_to new_admin_session_path
-    end
+    redirect_to new_admin_session_path if params[:word] == 'adminsignin'
   end
 end

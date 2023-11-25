@@ -43,28 +43,29 @@
       </div>
     </div>
   <% end %>
-</div>
+
 <!--配送先登録一覧-->
-<table class="table">
-  <thead>
-      <tr>
-        <th scope="col">郵便番号</th>
-        <th scope="col">住所</th>
-        <th scope="col">宛名</th>
-        <th scope="col"></th>
-      </tr>
-  </thead>
-  <tbody>
-    <% @shipping_addresses.each do |address| %>
-      <tr>
-        <td> <%= address.postcode %></td>
-        <td> <%= address.address %></td>
-        <td> <%= address.name %></td> 
-        <td> 
-          <%= link_to "編集", edit_shipping_address_path(address), class:"btn btn-warning rounded-pill text-light" %>
-          <%= link_to "削除", shipping_address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-dark rounded-pill text-light", form_class: "d-inline" %>
-        </td>
-    <% end %>
-      </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">郵便番号</th>
+          <th scope="col">住所</th>
+          <th scope="col">宛名</th>
+          <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @shipping_addresses.each do |address| %>
+        <tr>
+          <td> <%= address.postcode %></td>
+          <td> <%= address.address %></td>
+          <td> <%= address.name %></td>
+          <td>
+            <%= link_to "編集", edit_shipping_address_path(address), class:"btn btn-warning rounded-pill text-light" %>
+            <%= link_to "削除", shipping_address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-dark rounded-pill text-light", form_class: "d-inline" %>
+          </td>
+      <% end %>
+        </tr>
+    </tbody>
+  </table>
+</div>
