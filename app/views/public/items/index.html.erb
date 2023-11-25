@@ -16,7 +16,7 @@
             <% end %>
             <div class="item-detail">
               <p><strong><%= link_to item.name, item_path(item)%></strong></p>
-              <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+              <p><strong><%= number_to_currency(item.tax_included_price, precision: 0, delimiter: ',') %></strong>(税込)</p>
             </div>
           </div>
         <% end %>

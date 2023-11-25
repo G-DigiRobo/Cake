@@ -11,7 +11,7 @@
         <div class="col-xl-6">
           <p><strong><%= @item.name %></strong></p><br>
           <p><%= @item.detail %></p>
-          <p><strong><%= number_to_currency(@item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+          <p><strong><%= number_to_currency(@item.tax_included_price, precision: 0, delimiter: ',') %></strong>(税込)</p>
         </div>
       </div>
       <div class="row">
