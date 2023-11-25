@@ -25,7 +25,7 @@
               <tr>
                 <th>税込価格(税抜価格)</th>
                 <td>
-                  <%= number_to_currency(@item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %>(<%= number_to_currency(@item.price, unit: '¥', precision: 0, delimiter: ',') %>)
+                  <%= number_to_currency(@item.tax_included_price, precision: 0, delimiter: ',') %>(<%= number_to_currency(@item.price, precision: 0, delimiter: ',') %>)
                 </td>
               </tr>
               <tr>
