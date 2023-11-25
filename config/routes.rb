@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
+    get "/genre/search" => "searches#genre_search"
     get '/about'=>'homes#about'
     resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show] do

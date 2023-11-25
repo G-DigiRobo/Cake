@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row mx-auto mt-5">
+    <div class="col-2" style="text-align: left;">
+       <%= render 'layouts/genre' ,genres:@genres %>
+    </div>
+    <div class="col-10">
+      <div class="row align-items-baseline">
+        <h2><strong>検索結果</strong></h2>
+        <p class="ml-2">(全<%= items.count %>件)</p>
+      </div>
+      <div class="row d-flex">
+        <% items.each do |item| %>
+          <div class="item mr-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+            <div class="item-detail">
+              <p><strong><%= item.name %></strong></p>
+              <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
