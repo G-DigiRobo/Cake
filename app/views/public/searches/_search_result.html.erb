@@ -6,7 +6,7 @@
     <div class="col-10">
       <div class="row align-items-baseline">
         <h2><strong>検索結果</strong></h2>
-        <p class="ml-2">(全<%= items.count %>件)</p>
+        <p class="ml-2">(全<%= items.total_count %>件)</p>
       </div>
       <div class="row d-flex">
         <% items.each do |item| %>
