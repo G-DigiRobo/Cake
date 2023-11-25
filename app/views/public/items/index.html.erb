@@ -15,7 +15,7 @@
               <%= image_tag item.image, size: "200x200" %>
             <% end %>
             <div class="item-detail">
-              <p><strong><%= item.name %></strong></p>
+              <p><strong><%= link_to item.name, item_path(item)%></strong></p>
               <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
             </div>
           </div>
