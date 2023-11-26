@@ -3,6 +3,7 @@ class Admin::SearchesController < ApplicationController
     @genres = Genre.all
     @range = params[:range]
     @customers = Customer.looks(params[:word])
-    @items = Item.looks(params[:word])
+    @word = params[:word]
+    @items = Item.looks(@word)
   end
 end
