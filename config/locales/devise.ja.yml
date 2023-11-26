@@ -67,3 +67,7 @@ ja:
     registrations:
       customer:
         signed_up: 'ユーザーが登録されました。'
+    failure:
+      customer:
+        invalid: "無効なユーザー名またはパスワードです"
+      invalid: "無効なユーザー名またはパスワードです"
