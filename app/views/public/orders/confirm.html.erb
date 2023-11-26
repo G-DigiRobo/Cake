@@ -23,9 +23,9 @@
                     <%= image_tag cart_item.item.image, size: "100x100", class: "img-thumbnail" %>
                     <%= cart_item.item.name %>
                   </td>
-                  <td class="text-center align-middle"><%= number_with_delimiter(cart_item.item.tax_included_price) %></td>
+                  <td class="text-center align-middle"><%= number_to_currency(cart_item.item.tax_included_price, precision: 0, delimiter: ',') %></td>
                   <td class="text-center align-middle"><%= cart_item.amount %></td>
-                  <td class="text-center align-middle"><%= number_with_delimiter(cart_item.item.tax_included_price * cart_item.amount) %></td>
+                  <td class="text-center align-middle"><%= number_to_currency(cart_item.item.tax_included_price * cart_item.amount, precision: 0, delimiter: ',') %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -35,15 +35,15 @@
           <table class="table table-bordered">
             <tr>
               <td class="align-middle">送料</td>
-              <td class="text-center align-middle">800</td>
+              <td class="text-center align-middle">800円</td>
             </tr>
             <tr>
               <td class="align-middle">商品合計</td>
-              <td class="text-center align-middle"><%= number_with_delimiter(@cart_items.sum { |item| item.item.tax_included_price * item.amount }) %></td>
+              <td class="text-center align-middle"><%= number_to_currency(@cart_items.sum { |item| item.item.tax_included_price * item.amount }, precision: 0, delimiter: ',') %></td>
             </tr>
             <tr>
               <td class="align-middle">請求金額</td>
-              <td class="text-center align-middle"><%= number_with_delimiter(@cart_items.sum { |item| item.item.tax_included_price * item.amount } + 800) %></td>
+              <td class="text-center align-middle"><%= number_to_currency(@cart_items.sum { |item| item.item.tax_included_price * item.amount } + 800, precision: 0, delimiter: ',') %></td>
             </tr>
           </table>
         </div>

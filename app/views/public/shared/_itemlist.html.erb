@@ -8,10 +8,16 @@
         <h2>
           <!--ジャンル検索の場合-->
           <% if current_page?(genre_search_path) %>
-            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>ジャンル検索結果</strong> "<%= @genre.name %>"
+            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>ジャンル検索結果</strong><i class="fa-solid fa-thumbtack fa-flip"></i>
+            <h2 class="wave-text">
+              <span><strong><%= @genre.name %></strong></span>
+            </h2>
           <!--商品検索の場合-->
           <% elsif current_page?(search_path) %>
-            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>検索結果</strong> "<%= @word %>"
+            <i class="fa-solid fa-magnifying-glass fa-flip"></i><strong>検索結果</strong><i class="fa-solid fa-thumbtack fa-flip"></i>
+            <h2 class="wave-text">
+              <span><strong><%= @word %></strong></span>
+            </h2>
           <!--商品一覧の場合-->
           <% elsif current_page?(items_path) %>
             <i class="fa-solid fa-democrat fa-beat"></i><strong>商品一覧</strong><i class="fa-solid fa-candy-cane fa-beat"></i>
@@ -27,7 +33,7 @@
             <% end %>
             <div class="item-detail">
               <p><strong><%= link_to item.name, item_path(item) %></strong></p>
-              <p><strong><%= number_to_currency(item.tax_included_price, unit: '¥', precision: 0, delimiter: ',') %></strong>(税込)</p>
+              <p><strong><%= number_to_currency(item.tax_included_price, precision: 0, delimiter: ',') %></strong>(税込)</p>
             </div>
           </div>
         <% end %>
