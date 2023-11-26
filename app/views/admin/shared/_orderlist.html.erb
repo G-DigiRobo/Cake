@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row mx-auto mt-5 text-center">
+    <div class="col-12">
+      <div class="row align-items-baseline">
+        <h2>
+          <i class="fa-solid fa-basket-shopping fa-bounce"></i>
+          <% if current_page?(admin_root_path) %>
+            注文履歴一覧
+          <!--顧客ごとの注文履歴一覧の場合-->
+          <% elsif current_page?(order_admin_customer_path) %>
+            <%= "#{customer.last_name}#{customer.first_name}" %>様の注文履歴
+          <% end %>
+          <!-------------------------------->
+          <i class="fa-solid fa-basket-shopping fa-bounce"></i>
+        </h2>
+      </div>
+
+      <table class='table'>
+        <thead class="thead-light">
+          <tr>
+            <th>購入日時</th>
+            <!--注文履歴一覧（top）の場合のみ表示-->
+            <% if current_page?(admin_root_path) %>
+              <th>購入者</th>
+            <% end %>
+            <!------------------------------------->
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% orders.each do |order| %>
+            <tr>
+              <td>
+                <%= link_to admin_order_path(order) do %>
+                  <%= order.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M:%S') %>
+                <% end %>
+              </td>
+              <!--注文履歴一覧（top）の場合のみ表示-->
+              <% if current_page?(admin_root_path) %>
+                <td>
+                  <%= link_to order_admin_customer_path(order.customer) do %>
+                    <%= "#{order.customer.last_name}#{order.customer.first_name}" %>
+                  <% end %>
+                </td>
+              <% end %>
+              <!------------------------------------->
+              <td><%= order.order_details.sum(&:amount) %></td>
+              <td>
+                <%= order.order_status_i18n %>
+                <!--入金待ちの時キャンセルボタン表示-->
+                <% if order.order_status == "awaiting_payment" %>
+                  <%= link_to "キャンセル", admin_order_path(order), method: :delete, data: { confirm: "本当にキャンセルしますか？" }, class: "btn btn-sm btn-danger"%>
+                <% end %>
+                <!----------------------------------->
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

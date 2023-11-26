@@ -3,6 +3,7 @@
     <div class="col-2" style="text-align: left;">
        <%= render 'layouts/genre' ,genres:@genres %>
     </div>
+    <!--ユーザー検索の場合-->
     <% if @range == "Customer" %>
       <div class="col-10">
         <div class="row align-items-baseline">
@@ -30,6 +31,7 @@
         </tb>
       </table>
       </div>
+    <!--商品検索の場合-->
     <% else %>
       <div class="col-10">
         <div class="row align-items-baseline">

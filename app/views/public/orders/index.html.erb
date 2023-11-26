@@ -24,7 +24,7 @@
               <td>〒<%= order.postcode %><br><%= order.address %><br><%= order.name %></td>
               <td>
                 <% order.order_details.each do |item| %>
-                  <%= item.item.name %>
+                  <%= item.item.name %><br>
                 <% end %>
               </td>
               <td><%= number_with_delimiter(order.billing_amount) %>円</td>

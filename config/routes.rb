@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get "search" => "searches#search"
     resources :orders, only: [:show, :update, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]do
+      member do
+        get :order
+      end
+    end
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, except: [:destroy]
     resources :order_details, only: [:update]
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
+    get "/genre/search" => "searches#genre_search"
     get '/about'=>'homes#about'
     resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show] do
