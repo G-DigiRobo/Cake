@@ -67,3 +67,10 @@ ja:
     registrations:
       customer:
         signed_up: 'ユーザーが登録されました。'
+    failure:
+      customer:
+        invalid: "無効なユーザー名またはパスワードです"
+      invalid: "無効なユーザー名またはパスワードです"
+      admin:
+        already_authenticated: '管理者として既にログインしています。'
+      already_authenticated: '既にログインしています。'
